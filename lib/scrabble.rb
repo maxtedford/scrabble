@@ -1,7 +1,7 @@
+require './lib/player'
+require 'pry'
+
 class Scrabble
-  def score(word)
-    0
-  end
 
   def point_values
     {
@@ -13,5 +13,25 @@ class Scrabble
       "U"=>1, "V"=>4, "W"=>4, "X"=>8,
       "Y"=>4, "Z"=>10
     }
+  end
+
+  def characters(letters)
+    if letters.class == String
+      letters.gsub(" ", "").upcase.chars
+    else
+      "You must enter letters"
+    end
+  end
+
+  def convert_to_scores(letter_collection)
+    letter_collection.map{|letter| point_values[letter]}
+  end
+
+  def score(letters = nil)
+    if letters == nil || letters.size == 0
+      0
+    else
+      convert_to_scores(characters(letters)).inject{|sum, score| sum + score}
+    end
   end
 end
