@@ -31,7 +31,7 @@ class Scrabble
     if letters == nil || letters.size == 0
       0
     else
-    convert_to_scores(characters(letters)).inject{|sum, score| sum + score}
+      convert_to_scores(characters(letters)).inject{|sum, score| sum + score}
     end
   end
 end
