@@ -31,6 +31,7 @@ class ScrabbleTest < Minitest::Test
 
   def test_it_scores_nil_as_0
     assert_equal 0, Scrabble.new.score(nil)
+    assert_equal 0, Scrabble.new.score("")
     assert_equal 0, Scrabble.new.score
   end
 

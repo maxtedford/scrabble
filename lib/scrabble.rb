@@ -1,4 +1,4 @@
-require_relative 'player'
+require './lib/player'
 require 'pry'
 
 class Scrabble
@@ -28,7 +28,7 @@ class Scrabble
   end
 
   def score(letters = nil)
-    if letters == nil
+    if letters == nil || letters.size == 0
       0
     else
     convert_to_scores(characters(letters)).inject{|sum, score| sum + score}
