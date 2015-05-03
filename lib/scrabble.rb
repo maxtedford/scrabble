@@ -1,5 +1,5 @@
-require './lib/player'
 require 'pry'
+require './lib/word'
 
 class Scrabble
 
@@ -15,23 +15,8 @@ class Scrabble
     }
   end
 
-  def characters(letters)
-    if letters.class == String
-      letters.gsub(" ", "").upcase.chars
-    else
-      "You must enter letters"
-    end
-  end
-
-  def convert_to_scores(letter_collection)
-    letter_collection.map{|letter| point_values[letter]}
-  end
-
-  def score(letters = nil)
-    if letters == nil || letters.size == 0
-      0
-    else
-      convert_to_scores(characters(letters)).inject{|sum, score| sum + score}
-    end
+  def score(word)
+    letters = Word.new(word)
+    letters.word_score
   end
 end
