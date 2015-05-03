@@ -58,4 +58,16 @@ class WordTest < MiniTest::Test
   def test_it_can_ignore_spaces
     assert_equal 18, Word.new("Turing School").word_score
   end
+
+  def test_it_can_return_a_double_word_score
+    assert_equal 2, Word.new("a").double_word_score
+    assert_equal 6, Word.new("aaa").double_word_score
+    assert_equal 20, Word.new("coding").double_word_score
+  end
+
+  def test_it_can_return_a_triple_word_score
+    assert_equal 3, Word.new("a").triple_word_score
+    assert_equal 9, Word.new("aaa").triple_word_score
+    assert_equal 30, Word.new("coding").triple_word_score
+  end
 end

@@ -12,5 +12,6 @@ class ScrabbleTest < Minitest::Test
 
   def test_it_can_return_a_word_score
     assert_equal 1, @scrabble.score("A")
+    assert_equal 10, @scrabble.score("coding")
   end
 end
