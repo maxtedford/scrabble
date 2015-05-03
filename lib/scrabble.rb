@@ -1,4 +1,3 @@
-require './lib/player'
 require 'pry'
 
 class Scrabble
