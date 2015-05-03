@@ -15,11 +15,11 @@ attr_reader :player_score, :player_scores, :name
   def play(word)
     @player_score += word.word_score
     @player_scores << word.word_score
-    @player_words << word
+    @player_words << word.word
   end
 
   def player_words
-    @player_words.map{|word| word.word}
+    @player_words.map{|word| word}
   end
 
   def print_current_score
@@ -38,7 +38,15 @@ attr_reader :player_score, :player_scores, :name
     player_words.zip(player_scores)
   end
 
+  def highest_scoring_word_and_score
+    match_words_with_scores.max_by{|element| element[1]}
+  end
+
   def highest_scoring_word
-    match_words_with_scores.max_by{|element| element[1]}[0]
+    highest_scoring_word_and_score[0]
+  end
+
+  def highest_score
+    highest_scoring_word_and_score[1]
   end
 end

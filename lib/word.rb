@@ -43,4 +43,12 @@ attr_reader :word
       convert_to_scores.inject{|sum, score| sum + score}
     end
   end
+
+  def double_word_score
+    word_score*2
+  end
+
+  def triple_word_score
+    word_score*3
+  end
 end

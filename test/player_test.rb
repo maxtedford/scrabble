@@ -63,10 +63,24 @@ class PlayerTest < Minitest::Test
     assert_equal [["coding", 10], ["is", 2], ["fun", 6]], @player1.match_words_with_scores
   end
 
+  def test_it_can_return_the_highest_scoring_word_with_its_score
+    @player1.play(Word.new("coding"))
+    @player1.play(Word.new("is"))
+    @player1.play(Word.new("fun"))
+    assert_equal ["coding", 10], @player1.highest_scoring_word_and_score
+  end
+
   def test_it_can_return_the_highest_scoring_word
     @player1.play(Word.new("coding"))
     @player1.play(Word.new("is"))
     @player1.play(Word.new("fun"))
     assert_equal "coding", @player1.highest_scoring_word
+  end
+
+  def test_it_can_return_the_highest_score
+    @player1.play(Word.new("coding"))
+    @player1.play(Word.new("is"))
+    @player1.play(Word.new("fun"))
+    assert_equal 10, @player1.highest_score
   end
 end
